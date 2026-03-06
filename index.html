@@ -1,0 +1,46 @@
+<html lang="en">
+  <head>
+    <style type="text/css">
+      body {
+        background-color: #000;
+        color: #fff;
+        font-family: arial, helvetica;
+        text-align: center;
+      }
+      #main {
+        margin: 0px auto;
+        margin-top: 150px;
+        width: 350px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main">
+      <h1 style="font-size:5em">No</h1>
+      <p id="line" style="color: grey"></p>
+    </div>
+
+    <script>
+      const birth = new Date("1942-11-20T08:30:00-04:00");
+      const el = document.getElementById("line");
+
+      function update() {
+        const now = new Date();
+        let diff = now - birth;
+
+        const s = Math.floor(diff / 1000) % 60;
+        const m = Math.floor(diff / (1000*60)) % 60;
+        const h = Math.floor(diff / (1000*60*60)) % 24;
+        const d = Math.floor(diff / (1000*60*60*24)) % 365;
+        const y = Math.floor(diff / (1000*60*60*24*365.2425));
+
+        el.textContent =
+          `Joseph R. Biden is ${y} years, ${d} days, ${h} hours, ${m} minutes, and ${s} seconds old.`;
+      }
+
+      update();
+      setInterval(update, 1000);
+    </script>
+  </body>
+</html>
