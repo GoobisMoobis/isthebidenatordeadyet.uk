@@ -13,17 +13,27 @@
         width: 350px;
         text-align: center;
       }
+      a {
+        color: #0af;
+      }
     </style>
   </head>
   <body>
     <div id="main">
       <h1 style="font-size:5em">No</h1>
       <p id="line" style="color: grey"></p>
+      <p id="other-domain" style="color: grey; margin-top: 1em;"></p>
     </div>
 
     <script>
       const birth = new Date("1942-11-20T08:30:00-04:00");
       const el = document.getElementById("line");
+      const otherEl = document.getElementById("other-domain");
+
+      const domainMap = {
+        "isthebidenatordeadyet.uk": "https://isthebidenatordead.uk/",
+        "isthebidenatordead.uk": "https://isthebidenatordeadyet.uk/"
+      };
 
       function update() {
         const now = new Date();
@@ -37,6 +47,13 @@
 
         el.textContent =
           `Joseph R. Biden is ${y} years, ${d} days, ${h} hours, ${m} minutes, and ${s} seconds old.`;
+
+        const current = window.location.hostname.toLowerCase();
+        const otherURL = domainMap[current] || "https://isthebidenatordeadyet.uk/";
+
+        const otherDomain = otherURL.replace(/^https?:\/\//, "").replace(/\/$/, "");
+
+        otherEl.innerHTML = `Also take a look at <a href="${otherURL}">${otherDomain}</a>!`;
       }
 
       update();
