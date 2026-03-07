@@ -16,6 +16,22 @@
       a {
         color: #0af;
       }
+      .src {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        font-size: 0.75rem;
+        color: rgb(148 163 184);
+        padding: 1rem;
+        pointer-events: none;
+        z-index: 10;
+      }
+
+      .src-link {
+        text-decoration: underline;
+        pointer-events: auto;
+        z-index: 10;
+      }
     </style>
   </head>
   <body>
@@ -24,6 +40,12 @@
       <p id="line" style="color: grey"></p>
       <p style="color: grey; margin-top: 1em;">
         Also try <a href="https://isthebidenatordead.uk/">isthebidenatordead.uk</a>!
+      </p>
+      <p class="src">
+        Site made by
+        <a href="https://github.com/GoobisMoobis/isthebidenatordeadyet.uk" class="src-link">
+          GoobisMoobis
+        </a>
       </p>
     </div>
     <script>
